@@ -2,31 +2,36 @@
 const personalImageAlt = "William Guaña";
 const name = "William Guaña";
 const description = "Fullstack Developer";
+const username = "@Nevmetal";
 import SocialPill from "@/components/SocialPill.astro";
 import LinkedInIcon from "@/components/icons/LinkedIn.astro";
 import MailIcon from "@/components/icons/Mail.astro";
 import GitHub from "@/components/icons/GitHub.astro";
 ---
 
-<article
-  class="min-w-96 max-w-lg bg-white border border-gray-200 rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-700"
->
-  <section class="flex flex-col items-center pb-10 pt-10">
-    <div class="flex flex-col items-center">
+<article class="w-full max-w-md space-y-6">
+  <section class="flex flex-col items-center space-y-4">
+    <div
+      class="relative h-24 w-24 overflow-hidden rounded-full border-2 border-white shadow-lg"
+    >
       <img
-        class="w-24 h-24 rounded-full shadow-lg"
+        class="object-cover"
         src="/src/assets/me.webp"
-        alt={personalImageAlt || "Logo"}
+        alt={personalImageAlt || "Perfil"}
       />
-      <h5 class="mb-1 text-xl font-medium text-gray-900 dark:text-white">
+    </div>
+    <div class="text-center">
+      <h1 class="text-2xl font-bold text-gray-800">
         {name}
-      </h5>
-      <span class="text-sm text-gray-500 dark:text-gray-400">{description}</span
-      >
+      </h1>
+      <p class="text-gray-600">
+        {username}
+      </p>
+      <p class="mt-2 text-sm text-gray-600">{description}</p>
     </div>
 
-    <div class="flex mt-2 md:mt-4">
-      <nav class="flex flex-wrap gap-4 ">
+    <div class="flex space-y-3">
+      <nav class="flex flex-wrap gap-4">
         <SocialPill href="mailto:wbgua@live.com">
           <MailIcon class="size-7" />
         </SocialPill>

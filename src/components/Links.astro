@@ -1,0 +1,48 @@
+---
+import Web from "@/components/icons/Web.astro";
+import Facebook from "@/components/icons/Facebook.astro";
+import Link from "@/components/icons/Link.astro";
+
+const TAGS = {
+  WEB: {
+    class: "text-red-500",
+    href: "https://nevmetal.dev/",
+    icon: Web,
+  },
+  FACEBOOK: {
+    class: "text-blue-800",
+    href: "#",
+    icon: Facebook,
+  },
+};
+
+const LINKS = [
+  {
+    title: "My Website",
+    tag: TAGS.WEB,
+  },
+  {
+    title: "Facebook",
+    tag: TAGS.FACEBOOK,
+  },
+];
+---
+
+<section class="space-y-3 w-full">
+  {
+    LINKS.map(({ title, tag }) => {
+      const { class: className, href, icon: Icon } = tag;
+      return (
+        <a
+          href={href}
+          target={href !== "#" ? "_blank" : "_self"}
+          rel="noopener noreferrer"
+          class={`${className} inline-flex items-center justify-center gap-2 whitespace-nowrap text-sm ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 border-input hover:text-accent-foreground h-10 px-4 w-full rounded-lg  bg-white py-3 text-center font-medium text-gray-800 shadow-sm transition-all hover:bg-gray-100 hover:shadow-md`}
+        >
+          <Icon class="size-7" />
+          {title}
+        </a>
+      );
+    })
+  }
+</section>
